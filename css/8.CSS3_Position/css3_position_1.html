@@ -1,63 +1,109 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS 요소 위치 정의 1</title>
 
     <style>
-
-        /*
-            position 속성 : 
-                - 
+      /*
+            position 속성 : 요소의 위치를 지정할 때 사용하는 속성
+                - top, bottom, left, right 좌표 속성과 함께 사용
         */
 
-        /*
+      /*
             static :
-                - 
-                - 
-                - 
-                - 
-                - 
+                - position 속성의 기본값
+                - 기본 요소의 배치 순서에 따라 위에서 아래로, 왼쪽에서 오른쪽으로 배치됨
+                - 부모 요소 내의 자식 요소로 존재할 땐 부모 요소의 위치를 기반으로 배치
+                - 이미 지정되어 있는 position 속성을 제거할 때 사용됨
+                - 좌표 속성 적용 불가능
         */
-        
+      .static-parent {
+        width: 400px;
+        height: 400px;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .static-item {
+        position: static;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(255, 0, 0, 0.8);
+        top: 20px; /*top과 left 적용 x*/
+        left: 20px;
+      }
 
-
-        /*
-            relative :
-                - 
-                - 
+      /*
+            relative : 
+                - 기존 위치를 기반으로 top, left, right, bottom 속성을 이용해서 상대적 위치를 지정할 수 있음
+                - static과의 차이는 좌표 속성 사용 여부 차이만 존재함
         */
-        
-
-
-        /*
-            absolute :
-                - 
-                - 
-                - 
+      .relative-item {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(255, 0, 0, 0.8);
+        top: 25px;
+        left: 25px;
+      }
+      /*
+            absolute : 
+                - 부모 또는 가장 가까이에 있는 상위요소 (위치가 명시되어 있는(static이 아닌))를 기준으로 top, left, right, bottom 속성 만큼 이동
+                - 모든 상위 요소가 static으로 지정되어 있으면 body를 기준으로 배치
+                - absolute 선언 시 block 요소의 너비가 컨텐츠의 너비를 따라감
         */
-        
+      .absolute-item {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 0, 255, 0.8);
+        top: 25px;
+        left: 25px;
+      }
+      .relative-parent {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        background-color: rgba(0, 0, 0, 0.3);
+      }
 
-
-        /*
+      /*
             fixed : 
-                - 
-                - 
-                - 
+                - 상위 요소와 관계없이 viewport 기준으로 top, left, right, bottom 속성 값만큼 이동
+                - 스크롤 되더라도 화면에 고정되어 있음
+                - fixed 선언 시 block 요소의 너비가 컨텐츠의 너비를 따라감
         */
-        
+      .fixed-item {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 255, 0, 0.5);
+        bottom: 100px;
+        right: 100px;
+      }
 
-
+      /*
+        sticky:
+            - 본인의 위치에 존재하다가 화면상에서 벗어나면 지정된 위치에 고정됨
+      */
+      .container {
+        height: 2000px;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      .sticky-box {
+        position: sticky;
+        width: 200px;
+        height: 200px;
+        background-color: rgba(255, 255, 0, 0.8);
+        top: 50px;
+      }
     </style>
-
-</head>
-<body>
-
+  </head>
+  <body>
     <h3>Static position</h3>
 
     <div class="static-parent">
-        <div class="static-item">static box</div>
+      <div class="static-item">static box</div>
     </div>
 
     <hr />
@@ -65,7 +111,7 @@
     <h3>Relative position</h3>
 
     <div class="static-parent">
-        <div class="relative-item">relative box</div>
+      <div class="relative-item">relative box</div>
     </div>
 
     <hr />
@@ -73,21 +119,19 @@
     <h3>Absolute position</h3>
 
     <div class="static-parent">
-        <div class="static-item">
-            static box
-            <div class="absolute-item">
-                absolute box
-            </div>
-        </div>
+      <div class="static-item">
+        static box
+        <div class="absolute-item">absolute box</div>
+      </div>
     </div>
     <br />
     <div class="relative-parent">
-        <div class="relative-item">
-            relative box
-            <div class="absolute-item">
-                absolute box
-            </div>
-        </div>
+      relative parent
+      <div class="relative-item">
+        relative box<br />
+        relative box
+        <div class="absolute-item">absolute box</div>
+      </div>
     </div>
 
     <hr />
@@ -95,13 +139,14 @@
     <h3>Absolute position</h3>
 
     <div class="relative-parent">
-        <div class="relative-item">
-            relative box
-            <div class="fixed-item">
-                fixed box
-            </div>
-        </div>
+      <div class="relative-item">
+        relative box
+        <div class="fixed-item">fixed box</div>
+      </div>
     </div>
 
-</body>
+    <div class="container">
+      <div class="sticky-box">sticky box</div>
+    </div>
+  </body>
 </html>
