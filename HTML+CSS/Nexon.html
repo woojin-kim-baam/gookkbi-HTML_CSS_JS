@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .grid-container {
+        display: grid;
+
+        grid-template:
+          "header header header header header"
+          "main1 main1 main1 main1 main1 " 100px
+          "main2 main2 main2 main2 main2 " 100px
+          "main3 main3 main3 main3 main3 " 300px
+          "main4 main4 main4 main4 main4 " 80px
+          "main5 main5 main5 main5 main5 " 120px
+          "main6 main6 main6 main6 main6 " 100px
+          "main7 main7 main7 main7 main7 " 400px
+          "footer footer footer footer footer" 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <main>
+        <div class="main1">Nexon</div>
+        <div class="main2">
+          <span>넥슨ID 로그인</span>
+          <span>일회용 로그인</span>
+          <span>QR 로그인</span>
+        </div>
+        <div class="main3">
+          <input placeholder="넥슨ID(아이디 또는 이메일)" />
+          <input placeholder="비밀번호" />
+        </div>
+        <div class="main4">
+          <input type="checkbox" value="login" /> 로그인 상태 유지
+        </div>
+        <div class="main5">
+          <button>넥슨 ID 로그인</button>
+        </div>
+        <div class="main6">
+          <div id="option">
+            <div>회원가입</div>
+            <div>넥슨 ID 찾기</div>
+            <div>비밀번호 찾기</div>
+            <div>보안센터</div>
+          </div>
+        </div>
+        <div class="main7"></div>
+      </main>
+      <footer></footer>
+    </div>
+  </body>
+</html>
