@@ -52,13 +52,7 @@ function pre1(number) {
 
 math(pre1, 5, 10);
 
-math(
-  function (data) {
-    return -data;
-  },
-  5,
-  10
-);
+math(function (data) {return -data;}, 5, 10);
 
 function func1() {
   var v = 10;
