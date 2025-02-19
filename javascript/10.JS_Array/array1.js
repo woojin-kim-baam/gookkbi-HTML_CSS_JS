@@ -11,18 +11,20 @@
 var emptyArray = [];
 console.log(emptyArray, typeof emptyArray, emptyArray[0]); // [] , object, undefined
 
-var numbers = [1, 2, 3, false, '5'];
+var numbers = [1, 2, 3, false, "5"];
 console.log(numbers);
 
 var funcs = [
-    function () { console.log('함수 1')},
-    function () { console.log('함수 2')}
+  function () {
+    console.log("함수 1");
+  },
+  function () {
+    console.log("함수 2");
+  },
 ];
 funcs[0]();
 
-
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     배열의 요소 추가
@@ -32,47 +34,43 @@ console.log('==============================');
 emptyArray[2] = 10;
 console.log(emptyArray, emptyArray[0]);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     배열의 요소 삭제
-    - delete 연산자를 사용해 제거
+    - delete 연산자를 사용해 제거 // 길이는 유지되고 요소가 사라짐
 */
 delete emptyArray[2];
 console.log(emptyArray);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     배열의 순회
     - for-in 방식을 이용해서 index 값을 가지고 순회 가능
 */
-var fruits = ['apple', 'banana', 'cacao'];
-for (var index = 0; index < fruits.length; index++){
-    console.log(fruits[index]);
+var fruits = ["apple", "banana", "cacao"];
+for (var index = 0; index < fruits.length; index++) {
+  console.log(fruits[index]);
 }
 
-console.log('==============================');
+console.log("==============================");
 
-for(var index in fruits) {
-    console.log(fruits[index]);
+for (var index in fruits) {
+  console.log(fruits[index]);
 }
 
-console.log('==============================');
-
+console.log("==============================");
 
 /*
     - for-in 방식은 index를 사용하여 한번 더 접근을 해야하기 때문에 단순히 읽는 작업에 대해서는 적합하지 않을 수 있음
     - for-of 방식을 사용하여 배열의 요소를 복사해서 직접 사용할 수 있음
 */
 for (var fruit of fruits) {
-    console.log(fruit);
+  console.log(fruit);
 }
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     배열의 길이 : 배열.length
@@ -91,16 +89,15 @@ var newFruits = [];
 //     newFruits[index] = fruits[index]  // 이게 위에꺼보다 더 간편
 // }
 
-for(var fruit of fruits) {
-    newFruits.push(fruit);
+for (var fruit of fruits) {
+  newFruits.push(fruit);
 }
 
-newFruits[0] = '사과';
+newFruits[0] = "사과";
 console.log(fruits);
 console.log(newFruits);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     배열 메서드
@@ -111,32 +108,29 @@ console.log('==============================');
     - 배열에 매개변수로 전달한 요소가 존재한다면 첫번째 인덱스 값을 반환
     - 존재하지 않으면 -1을 반환
 */
-console.log(fruits.indexOf('apple'));
-console.log(fruits.indexOf('melon'));
-console.log(fruits.indexOf('melon') !== -1);
+console.log(fruits.indexOf("apple"));
+console.log(fruits.indexOf("melon"));
+console.log(fruits.indexOf("melon") !== -1);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
 includes(element) :
 - 배열에 전달된 매개변수가 요소에 존재하면 true, 존재하지 않으면 false를 반환
 */
-console.log(fruits.includes('apple'));
-console.log(fruits.includes('melon'));
+console.log(fruits.includes("apple"));
+console.log(fruits.includes("melon"));
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     push(element) :
     - 배열의 마지막 인덱스에 요소를 추가하고 변경된 길이를 반환
 */
 console.log(fruits, fruits.length);
-console.log(fruits.push('mango'), fruits);
+console.log(fruits.push("mango"), fruits);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     pop() :
@@ -144,8 +138,7 @@ console.log('==============================');
 */
 console.log(fruits.pop(), fruits);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     shift() :
@@ -153,44 +146,37 @@ console.log('==============================');
 */
 console.log(fruits.shift(), fruits);
 
-console.log('==============================');
+console.log("==============================");
 
 /*
     reverse() : 
     - 배열의 요소 순서를 역전
 */
 var numbers = [1, 2, 3, 4, 5, 6];
-console.log(numbers.reverse(),numbers);
+console.log(numbers.reverse(), numbers);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     concat(array or item) : 
     - 매개변수로 전달된 값들을 배열의 마지막 요소 뒤에 연결하여 새로운 배열을 반환
 */
-var newNumbers = numbers.concat([1,2,3])
+var newNumbers = numbers.concat([1, 2, 3]);
 console.log(newNumbers, numbers); // 자기 자신이 변경하지 않기에 concat은 부수효과가 없다고 한다
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
     slice(start, end) : 
     - start에 해당하는 인덱스부터 end에 해당하는 인덱스까지 복사하여 반환
 */
-console.log(numbers.slice(2,4), numbers);
+console.log(numbers.slice(2, 4), numbers);
 
-
-console.log('==============================');
+console.log("==============================");
 
 /*
-    splice(start, eleteCount, items...) : 
+    splice(start, deleteCount, items...) : 
     - 배열의 요소를 제거하고 제거한 위치에 요소를 갈아끼운 배열을 반환
 */
-console.log(numbers.splice(1,2, '추가', '추가2'), numbers);
-console.log(numbers.splice(1,1), numbers);
-
-
-
-
+console.log(numbers.splice(1, 2, "추가", "추가2"), numbers);
+console.log(numbers.splice(1, 1), numbers);

@@ -50,7 +50,7 @@ console.log("==============================");
     생성자 함수 : 생성자 함수를 사용하여 클래스처럼 사용 가능
 */
 function King(name, start, end, ho) {
-  // 이제는 클래스를 쓰는게 낫다다
+  // 이제는 클래스를 쓰는게 낫다
   this.name = name;
   this.start = start;
   this.end = end;

@@ -133,20 +133,21 @@
             - 요소에 새로운 텍스트 내용을 지정할 때 사용 
         */
       console.log(userPwMessageElement.textContent);
-      userPwMessageElement.textContent = "잘못된 <strong>비밀번호</strong>입니다.";
+      userPwMessageElement.textContent = "잘못된 <strong>비밀번호</strong>입니다."; // 여기선 실제 마크업으로 인식 못함
 
       console.log("==============================");
 
       /*
             innerHTML
             - 요소의 HTML을 반환 또는 변경
-            - XSS (Cross Site Script) 보안 취약점에 노출될 수 있음음
+            - XSS (Cross Site Script) 보안 취약점에 노출될 수 있음
         */
       console.log(userPwMessageElement.innerHTML);
       userPwMessageElement.innerHTML = "잘못된 <strong>비밀번호</strong>입니다.";
 
       console.log("==============================");
 
+      // 그 노출을 방지하기 위해 아래방법을 사용해 값을 넣음
       /*
             createElement(tagName)
             - 매개변수로 전달한 태그에 해당하든 요소 객체를 생성
