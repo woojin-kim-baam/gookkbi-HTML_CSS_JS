@@ -61,6 +61,7 @@ let king2 = {
 };
 
 // const { name, ho, address, age } = king; // console.log(age); => undefined
+// 속성명은 같게 적어줘야함 다르게 적으면 undefined 반환
 const { name: name1, ho: ho1, address: address1 } = king; // 이름을 다르게 적어줘야함
 const { name, ho, address } = king2;
 console.log(name);
